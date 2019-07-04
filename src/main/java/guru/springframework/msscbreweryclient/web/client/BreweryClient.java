@@ -16,7 +16,7 @@ import java.util.UUID;
 @Component
 public class BreweryClient {
 
-    public final String BEER_PATH_V1 = "/api/v1/beer/";
+    public final String BEER_PATH_V1 = "/api/v1/beer";
     private String apihost;
 
     private final RestTemplate restTemplate;
@@ -37,6 +37,11 @@ public class BreweryClient {
         restTemplate.put(apihost + BEER_PATH_V1 + "/" + uuid.toString(), beerDto);
     }
 
+    public void deleteBeer(UUID uuid){
+        System.out.println("DEEEEEEEEEEEEEEEEEEE" + apihost + BEER_PATH_V1 + "/" + uuid.toString());
+        restTemplate.delete(apihost + BEER_PATH_V1 + "/" + uuid.toString());
+    }
+    
     public void setApihost(String apihost) {
         this.apihost = apihost;
     }
